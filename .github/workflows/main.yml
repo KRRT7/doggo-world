@@ -33,7 +33,7 @@ jobs:
         run: python -m pip install --upgrade pip wheel build
 
       - name: Install dependencies
-        run: python -m pip install nuitka
+        run: python -m pip install nuitka requests
 
       - name: Build with Nuitka
         run: python -m nuitka --onefile --remove-output main.py
