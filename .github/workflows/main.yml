@@ -36,7 +36,7 @@ jobs:
         run: python -m pip install nuitka requests
 
       - name: Build with Nuitka
-        run: python -m nuitka --onefile --remove-output main.py
+        run: python -m nuitka --onefile --remove-output --run main.py
 
       - name: Upload the built binary
         uses: actions/upload-artifact@65462800fd760344b1a7b4382951275a0abb4808 # v4.3.3
