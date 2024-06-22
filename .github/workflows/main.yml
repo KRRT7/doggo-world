@@ -104,6 +104,16 @@ jobs:
         with:
           nuitka-version: main
           script-name: main.py
+          onefile: true
+          remove-output: true
+          run: true
+
+      - name: Upload the built binary
+        uses: actions/upload-artifact@65462800fd760344b1a7b4382951275a0abb4808 # v4.3.3
+        with:
+          name: myapp-binaries-${{ matrix.os }}-${{ matrix.python-version }}
+          # path: ./build/myapp.exe
+          path: ./main.bin
   combine:
     needs: [build]
 
@@ -121,4 +131,5 @@ jobs:
         uses: actions/upload-artifact@65462800fd760344b1a7b4382951275a0abb4808 # v4.3.3
         with:
           name: myapp-binaries
-          path: build
+          # path: build
+          path: ./main.bin
