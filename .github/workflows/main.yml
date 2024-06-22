@@ -105,7 +105,6 @@ jobs:
           nuitka-version: main
           script-name: main.py
           onefile: true
-          remove-output: true
           run: true
 
       - name: Upload the built binary
