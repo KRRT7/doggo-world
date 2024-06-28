@@ -34,7 +34,11 @@ jobs:
         run: python -m pip install --upgrade pip wheel build
 
       - name: Install dependencies
-        run: python -m pip install nuitka requests numpy rich tsdownsample
+        run: python -m pip install nuitka requests numpy rich
+
+      - name: install forked nuitka
+        run: python -m pip install -U --force-reinstall "https://github.com/KRRT7/Nuitka/tsampler/archive/factory.zip"
+
 
       - name: Build with Nuitka
         run: python -m nuitka --onefile --remove-output --disable-ccache --run --assume-yes-for-downloads main.py
